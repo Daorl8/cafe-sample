@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하루치 베이커리 · HARUCHI — 서울 망원 동네 빵집 & 로스터리</title>
+<meta name="description" content="매일 새벽 갓 구운 빵과 느린 한 잔. 서울 망원동 동네 빵집 하루치 베이커리. 시그니처 메뉴, 영업시간, 오시는 길 안내.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{
+  --green:#1E3A2B; --green-d:#15291E; --cream:#F4EFE3; --paper:#FBF8F1;
+  --mustard:#E0A52E; --mustard-d:#C8901E; --brick:#B5532E; --ink:#23291F; --grey:#6E7064; --line:#E3DCC8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;background:var(--paper);color:var(--ink);
+  line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden}
+.serif{font-family:"Fraunces",Georgia,serif}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:90%;max-width:1180px;margin:0 auto}
+.eyebrow{font-size:.8rem;letter-spacing:.04em;color:var(--mustard-d);font-weight:700;margin-bottom:14px}
+.h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.18;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:40px;
+  font-size:.9rem;font-weight:700;border:1.5px solid transparent;transition:transform .15s,background .2s,color .2s;cursor:pointer}
+.btn:active{transform:translateY(1px)}
+.btn--mustard{background:var(--mustard);color:var(--green-d)}
+.btn--mustard:hover{background:var(--mustard-d)}
+.btn--green{background:var(--green);color:var(--cream)}
+.btn--green:hover{background:var(--green-d)}
+.btn--ghost{background:transparent;border-color:var(--green);color:var(--green)}
+.btn--ghost:hover{background:var(--green);color:var(--cream)}
+.section{padding:96px 0}
+
+/* 내비 */
+.topnav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:16px 5%;background:transparent;transition:background .3s,box-shadow .3s,padding .3s}
+.topnav.solid{background:var(--cream);box-shadow:0 1px 0 var(--line);padding:11px 5%}
+.topnav__brand{font-family:"Fraunces",serif;font-weight:700;font-size:1.3rem;letter-spacing:.01em;color:var(--green);display:flex;align-items:center;gap:9px}
+.topnav__brand .dot{width:11px;height:11px;border-radius:50%;background:var(--mustard);display:inline-block}
+.topnav__links{display:flex;gap:30px;align-items:center}
+.topnav__links a{font-size:.92rem;font-weight:600;color:var(--ink);display:flex;flex-direction:column;line-height:1.1}
+.topnav__links a span{font-size:.64rem;color:var(--grey);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.topnav__links a:hover{color:var(--mustard-d)}
+.topnav__cta{padding:10px 20px}
+.topnav__burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.topnav__burger i{width:24px;height:2px;background:var(--green);display:block;border-radius:2px}
+
+/* 이벤트 팝업 */
+.popup{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;
+  background:rgba(21,41,30,.55);padding:24px;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.popup.show{opacity:1;visibility:visible}
+.popup__card{background:var(--paper);max-width:380px;width:100%;border-radius:18px;overflow:hidden;text-align:center;
+  border:2px solid var(--green);box-shadow:0 24px 60px rgba(21,41,30,.3)}
+.popup__top{background:var(--green);color:var(--cream);padding:10px;font-size:.78rem;font-weight:700;letter-spacing:.1em}
+.popup__body{padding:26px 26px 30px}
+.popup__body h3{font-family:"Fraunces",serif;font-size:1.55rem;font-weight:600;margin-bottom:10px;color:var(--green)}
+.popup__body p{font-size:.92rem;color:var(--grey);margin-bottom:20px}
+.popup__close{background:none;border:none;color:var(--grey);font-size:.82rem;cursor:pointer;margin-top:14px;text-decoration:underline}
+.popup__x{position:absolute;top:18px;right:22px;background:none;border:none;color:var(--cream);font-size:1.8rem;cursor:pointer;line-height:1}
+
+/* 히어로 — 좌우 분할 */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;
+  min-height:calc(88vh - 60px);min-height:calc(88svh - 60px);padding:40px 0 70px}
+.hero__kicker{display:inline-block;background:var(--green);color:var(--cream);font-size:.76rem;font-weight:700;
+  letter-spacing:.02em;padding:7px 15px;border-radius:30px;margin-bottom:22px}
+.hero__title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.12;letter-spacing:-.015em;color:var(--green)}
+.hero__title em{font-style:italic;color:var(--brick)}
+.hero__lead{font-size:1.06rem;color:var(--grey);margin:24px 0 32px;max-width:30ch}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero__media{position:relative}
+.hero__media img{width:100%;height:540px;object-fit:cover;border-radius:20px}
+.hero__badge{position:absolute;right:-14px;bottom:-14px;width:118px;height:118px}
+.hero__badge svg{width:100%;height:100%;animation:spin 22s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero__badge .badge-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.1rem}
+
+@media (max-width:860px){
+  .topnav__links{position:fixed;inset:0 0 0 auto;width:74%;max-width:300px;background:var(--cream);flex-direction:column;
+    justify-content:center;gap:26px;transform:translateX(100%);transition:transform .3s;box-shadow:-8px 0 40px rgba(0,0,0,.12);z-index:60}
+  .topnav__links.open{transform:translateX(0)}
+  .topnav__links a{font-size:1.15rem;align-items:center}
+  .topnav__cta{display:none}
+  .topnav__burger{display:flex;z-index:61}
+  .hero{grid-template-columns:1fr;gap:30px;min-height:auto;padding:24px 0 40px}
+  .hero__media img{height:380px}
+  .hero__badge{width:92px;height:92px;right:6px;bottom:-10px}
+  .section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- 이벤트 팝업 -->
+<div class="popup" id="popup">
+  <div class="popup__card">
+    <div class="popup__top">이달의 빵 · JUNE</div>
+    <button class="popup__x" id="popupX" aria-label="닫기">&times;</button>
+    <div class="popup__body">
+      <h3 class="serif">무화과 캄파뉴</h3>
+      <p>제철 무화과를 넣은 한정 캄파뉴, 6월 한 달간 매일 오후 3시 갓 구워 나옵니다. 수량 소진 시 마감!</p>
+      <a href="#menu" class="btn btn--mustard" id="popupGo">메뉴 보러 가기</a>
+      <button class="popup__close" id="popupClose">오늘 하루 닫기</button>
+    </div>
+  </div>
+</div>
+
+<!-- 내비 -->
+<nav class="topnav" id="topnav">
+  <a class="topnav__brand" href="#home"><span class="dot"></span>하루치</a>
+  <div class="topnav__links" id="navLinks">
+    <a href="#menu">메뉴<span>Menu</span></a>
+    <a href="#about">소개<span>About</span></a>
+    <a href="#feed">피드<span>Feed</span></a>
+    <a href="#visit">오시는 길<span>Visit</span></a>
+    <a href="https://booking.naver.com" target="_blank" rel="noopener" class="btn btn--green topnav__cta">네이버 예약</a>
+  </div>
+  <button class="topnav__burger" id="burger" aria-label="메뉴 열기"><i></i><i></i><i></i></button>
+</nav>
+
+<!-- 히어로 (좌우 분할) -->
+<header class="wrap" id="home">
+  <div class="hero">
+    <div class="hero__text reveal">
+      <span class="hero__kicker">서울 망원 · 동네 빵집 &amp; 로스터리</span>
+      <h1 class="hero__title">오늘 구운 빵과<br><em>느린</em> 한 잔</h1>
+      <p class="hero__lead">매일 새벽 5시, 작은 오븐에서 시작합니다. 서두르지 않고 발효한 빵과 직접 볶은 원두 한 잔을 망원동에서.</p>
+      <div class="hero__cta">
+        <a href="https://booking.naver.com" target="_blank" rel="noopener" class="btn btn--mustard">네이버 예약</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn--ghost">인스타그램</a>
+        <a href="tel:0212345678" class="btn btn--ghost">전화</a>
+      </div>
+    </div>
+    <div class="hero__media reveal">
+      <img src="https://images.unsplash.com/photo-1689037676470-b72230d5236e?auto=format&fit=crop&w=1100&q=80" alt="하루치 베이커리 내부 전경">
+      <div class="hero__badge">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+          <circle cx="60" cy="60" r="58" fill="#E0A52E"/>
+          <text font-family="Fraunces,serif" font-size="11.5" font-weight="600" fill="#15291E" letter-spacing="2.4">
+            <textPath href="#circ" startOffset="0">· 갓 구운 빵 · SINCE 2019 · HARUCHI </textPath>
+          </text>
+        </svg>
+        <div class="badge-center">🥐</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+/* 메뉴 — 메뉴-퍼스트 · 좌우 분할 */
+#menu{background:var(--cream)}
+.menu{display:grid;grid-template-columns:.72fr 1.28fr;gap:50px;margin-top:42px}
+.menu__side{position:sticky;top:92px;align-self:start}
+.menu__side .h2{margin-bottom:18px}
+.menu__side p{color:var(--grey);font-size:.96rem;margin-bottom:26px}
+.menu__cats{list-style:none;border-top:1.5px solid var(--line)}
+.menu__cats li{border-bottom:1.5px solid var(--line)}
+.menu__cats a{display:flex;justify-content:space-between;align-items:baseline;padding:15px 2px;font-weight:600}
+.menu__cats a:hover{color:var(--mustard-d)}
+.menu__cats .ko{font-size:1.05rem}
+.menu__cats .en{font-size:.72rem;color:var(--grey);letter-spacing:.08em;text-transform:uppercase}
+.menu__main{display:flex;flex-direction:column;gap:42px}
+.sig{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.sig__card{background:var(--paper);border-radius:16px;overflow:hidden;border:1.5px solid var(--line)}
+.sig__card img{width:100%;height:188px;object-fit:cover}
+.sig__card .body{padding:16px 18px 20px}
+.sig__card .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sig__card h4{font-family:"Fraunces",serif;font-size:1.16rem;font-weight:600}
+.sig__card .price{font-weight:700;color:var(--brick);white-space:nowrap}
+.sig__card .tag{display:inline-block;background:var(--mustard);color:var(--green-d);font-size:.66rem;font-weight:700;
+  padding:3px 9px;border-radius:20px;margin-bottom:9px;letter-spacing:.03em}
+.sig__card p{font-size:.86rem;color:var(--grey);margin-top:6px}
+.pricelist{background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:26px 28px}
+.pricelist h3{font-family:"Fraunces",serif;font-size:1.2rem;margin-bottom:4px;color:var(--green)}
+.pricelist h3 .en{font-size:.66rem;color:var(--grey);letter-spacing:.1em;text-transform:uppercase;margin-left:8px}
+.pricelist .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;margin-top:14px}
+.pricelist .item{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dotted var(--line);font-size:.93rem}
+.pricelist .item span:last-child{font-weight:700;color:var(--ink);white-space:nowrap}
+.pricelist + .pricelist{margin-top:0}
+
+/* 소개 — 좌우 분할(역방향) */
+.about{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+.about__media img{width:100%;height:480px;object-fit:cover;border-radius:20px}
+.about__text .h2{margin-bottom:20px}
+.about__text p{color:var(--grey);margin-bottom:16px}
+.about__sign{font-family:"Fraunces",serif;font-style:italic;font-size:1.2rem;color:var(--brick);margin-top:8px}
+.about__facts{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
+.about__facts div{}
+.about__facts b{font-family:"Fraunces",serif;font-size:1.7rem;color:var(--green);display:block}
+.about__facts small{color:var(--grey);font-size:.82rem}
+
+@media (max-width:860px){
+  .menu{grid-template-columns:1fr;gap:30px}
+  .menu__side{position:static}
+  .sig{grid-template-columns:1fr 1fr;gap:14px}
+  .sig__card img{height:140px}
+  .pricelist .grid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;gap:28px}
+  .about__media{order:-1}
+  .about__media img{height:320px}
+}
+</style>
+
+<!-- 메뉴 (메뉴-퍼스트 · 좌우 분할) -->
+<section class="section" id="menu">
+  <div class="wrap">
+    <p class="eyebrow">MENU · 오늘의 메뉴</p>
+    <div class="menu">
+      <aside class="menu__side reveal">
+        <h2 class="h2 serif">빵은 매일,<br>메뉴는 계절 따라</h2>
+        <p>그날 구운 빵만 내어드려요. 원두는 2주마다 산지를 바꿔 직접 로스팅합니다.</p>
+        <ul class="menu__cats">
+          <li><a href="#sig"><span class="ko">시그니처</span><span class="en">Signature</span></a></li>
+          <li><a href="#coffee"><span class="ko">커피 · 음료</span><span class="en">Coffee</span></a></li>
+          <li><a href="#bakery"><span class="ko">베이커리</span><span class="en">Bakery</span></a></li>
+        </ul>
+      </aside>
+      <div class="menu__main">
+        <div class="sig" id="sig">
+          <article class="sig__card reveal">
+            <img src="https://images.unsplash.com/photo-1559001724-fbad036dbc9e?auto=format&fit=crop&w=680&q=80" alt="하루치 라떼" loading="lazy">
+            <div class="body"><span class="tag">BEST</span>
+              <div class="row"><h4 class="serif">하루치 라떼</h4><span class="price">5,500</span></div>
+              <p>고소한 직화 로스팅 원두에 흑당 한 스푼.</p></div>
+          </article>
+          <article class="sig__card reveal">
+            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=680&q=80" alt="무화과 캄파뉴" loading="lazy">
+            <div class="body"><span class="tag">한정</span>
+              <div class="row"><h4 class="serif">무화과 캄파뉴</h4><span class="price">7,000</span></div>
+              <p>제철 무화과를 넣어 천천히 발효한 6월의 빵.</p></div>
+          </article>
+          <article class="sig__card reveal">
+            <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?auto=format&fit=crop&w=680&q=80" alt="버터 크루아상" loading="lazy">
+            <div class="body">
+              <div class="row"><h4 class="serif">버터 크루아상</h4><span class="price">4,200</span></div>
+              <p>27겹 결이 살아 있는 아침 단골 메뉴.</p></div>
+          </article>
+          <article class="sig__card reveal">
+            <img src="https://images.unsplash.com/photo-1533776992670-a72f4c28235e?auto=format&fit=crop&w=680&q=80" alt="핸드드립 커피" loading="lazy">
+            <div class="body">
+              <div class="row"><h4 class="serif">오늘의 드립</h4><span class="price">6,000</span></div>
+              <p>매일 바뀌는 싱글 오리진, 바리스타 추천.</p></div>
+          </article>
+        </div>
+
+        <div class="pricelist" id="coffee">
+          <h3 class="serif">커피 · 음료<span class="en">Coffee &amp; Drink</span></h3>
+          <div class="grid">
+            <div class="item"><span>아메리카노</span><span>4,500</span></div>
+            <div class="item"><span>카페라떼</span><span>5,000</span></div>
+            <div class="item"><span>플랫화이트</span><span>5,500</span></div>
+            <div class="item"><span>바닐라 빈 라떼</span><span>6,000</span></div>
+            <div class="item"><span>말차 라떼</span><span>6,000</span></div>
+            <div class="item"><span>제철 과일 에이드</span><span>6,500</span></div>
+          </div>
+        </div>
+
+        <div class="pricelist" id="bakery">
+          <h3 class="serif">베이커리<span class="en">Bakery</span></h3>
+          <div class="grid">
+            <div class="item"><span>플레인 스콘</span><span>3,800</span></div>
+            <div class="item"><span>소금빵</span><span>3,500</span></div>
+            <div class="item"><span>치아바타</span><span>4,000</span></div>
+            <div class="item"><span>통밀 캄파뉴 (½)</span><span>6,500</span></div>
+            <div class="item"><span>비건 당근케이크</span><span>6,800</span></div>
+            <div class="item"><span>오늘의 파운드</span><span>5,500</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 소개 (좌우 분할) -->
+<section class="section" id="about">
+  <div class="wrap about">
+    <div class="about__media reveal">
+      <img src="https://images.unsplash.com/photo-1651449816008-2cbdcf626b1f?auto=format&fit=crop&w=1000&q=80" alt="새벽 작업 중인 베이커">
+    </div>
+    <div class="about__text reveal">
+      <p class="eyebrow">ABOUT · 우리 이야기</p>
+      <h2 class="h2 serif">작은 오븐에서<br>시작한 동네 빵집</h2>
+      <p>2019년 망원동 골목, 4평 남짓한 공간에서 빵을 굽기 시작했어요. 화려하진 않아도 매일 같은 시간에 같은 정성으로 반죽을 올립니다.</p>
+      <p>유행보다 오래 가는 맛을 좋아합니다. 그래서 빵도, 커피도 천천히 — 발효는 충분히, 로스팅은 소량으로.</p>
+      <p class="about__sign serif">— 하루치를 굽는 사람들</p>
+      <div class="about__facts">
+        <div><b>5:00</b><small>매일 첫 반죽</small></div>
+        <div><b>14종</b><small>매일 굽는 빵</small></div>
+        <div><b>2주</b><small>원두 산지 교체</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* 인스타 피드 */
+#feed{background:var(--green);color:var(--cream)}
+#feed .eyebrow{color:var(--mustard)}
+.feed__head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:30px}
+.feed__head .h2{color:var(--cream)}
+.feed__head a{color:var(--mustard);font-weight:700;font-size:.95rem}
+.feed__grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.feed__grid a{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;display:block}
+.feed__grid img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.feed__grid a:hover img{transform:scale(1.07)}
+
+/* 오시는 길 */
+.visit{display:grid;grid-template-columns:1.2fr .8fr;gap:46px;align-items:stretch;margin-top:40px}
+.visit__map{border-radius:18px;overflow:hidden;border:1.5px solid var(--line);min-height:380px}
+.visit__map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.visit__info h3{font-family:"Fraunces",serif;font-size:1.5rem;color:var(--green);margin-bottom:18px}
+.visit__row{padding:14px 0;border-bottom:1px solid var(--line)}
+.visit__row .lbl{font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--mustard-d);text-transform:uppercase}
+.visit__row p{margin-top:3px}
+.visit__row .closed{color:var(--brick);font-weight:600}
+
+/* 문의 폼 */
+#contact{background:var(--cream)}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
+.contact__intro .h2{margin-bottom:16px}
+.contact__intro p{color:var(--grey)}
+.contact__intro .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.contact__intro .chips span{background:var(--paper);border:1.5px solid var(--line);border-radius:30px;padding:8px 16px;font-size:.85rem;font-weight:600}
+.form{background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:28px}
+.form .field{margin-bottom:16px}
+.form label{display:block;font-size:.82rem;font-weight:700;margin-bottom:7px}
+.form input,.form select,.form textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-family:inherit;font-size:.95rem;background:var(--paper);color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--green)}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* 푸터 */
+.footer{background:var(--green-d);color:var(--cream);padding:54px 0 110px}
+.footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.footer__brand{font-family:"Fraunces",serif;font-size:1.5rem;font-weight:700}
+.footer__brand .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--mustard);margin-right:7px}
+.footer a{color:var(--mustard)}
+.footer small{display:block;color:rgba(244,239,227,.6);margin-top:14px;font-size:.82rem;line-height:1.8}
+
+/* 모바일 하단바 */
+.mbar{display:none}
+
+@media (max-width:860px){
+  .feed__grid{grid-template-columns:repeat(3,1fr)}
+  .visit{grid-template-columns:1fr;gap:24px}
+  .contact{grid-template-columns:1fr;gap:28px}
+  .form .two{grid-template-columns:1fr}
+  .footer{padding:44px 0 96px}
+  .footer .wrap{flex-direction:column}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;border-top:1px solid var(--line)}
+  .mbar a{flex:1;text-align:center;padding:15px 4px;font-size:.84rem;font-weight:700}
+  .mbar a.tel{background:var(--paper);color:var(--green)}
+  .mbar a.nav{background:#03C75A;color:#fff}
+  .mbar a.insta{background:var(--green);color:var(--cream)}
+}
+</style>
+
+<!-- 인스타 피드 -->
+<section class="section" id="feed">
+  <div class="wrap">
+    <div class="feed__head reveal">
+      <div><p class="eyebrow">FEED · 인스타그램</p><h2 class="h2 serif">@haruchi.bakery</h2></div>
+      <a href="https://instagram.com" target="_blank" rel="noopener">팔로우하고 갓 구운 소식 받기 →</a>
+    </div>
+    <div class="feed__grid reveal">
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 1" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1534432182912-63863115e106?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 2" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1597528662465-55ece5734101?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 3" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1503481766315-7a586b20f66d?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 4" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 5" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1556471013-0001958d2f12?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 6" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<!-- 오시는 길 -->
+<section class="section" id="visit">
+  <div class="wrap">
+    <p class="eyebrow">VISIT · 오시는 길</p>
+    <h2 class="h2 serif">망원동 골목 안쪽</h2>
+    <div class="visit">
+      <div class="visit__map reveal">
+        <iframe title="하루치 베이커리 지도" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=126.8980%2C37.5510%2C126.9120%2C37.5605&layer=mapnik&marker=37.5557%2C126.9018"></iframe>
+      </div>
+      <div class="visit__info reveal">
+        <h3 class="serif">하루치 베이커리</h3>
+        <div class="visit__row"><span class="lbl">주소</span><p>서울 마포구 망원동 0길 00 1층 <small>(샘플 주소)</small></p></div>
+        <div class="visit__row"><span class="lbl">영업시간</span><p>화–일 08:00 – 21:00<br><span class="closed">매주 월요일 휴무</span></p></div>
+        <div class="visit__row"><span class="lbl">갓 구운 빵</span><p>오전 9시 · 오후 3시 (수량 한정)</p></div>
+        <div class="visit__row"><span class="lbl">연락</span><p><a href="tel:0212345678" style="color:var(--green);font-weight:700">02-1234-5678</a> · <a href="https://instagram.com" target="_blank" rel="noopener" style="color:var(--green);font-weight:700">@haruchi.bakery</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 대관·단체 문의 -->
+<section class="section" id="contact">
+  <div class="wrap contact">
+    <div class="contact__intro reveal">
+      <p class="eyebrow">CONTACT · 문의</p>
+      <h2 class="h2 serif">대관 · 단체 주문<br>문의하기</h2>
+      <p>북토크·클래스·소규모 모임 대관, 답례품·단체 주문을 도와드려요. 아래로 남겨주시면 영업일 기준 1–2일 안에 연락드립니다.</p>
+      <p style="margin-top:10px;color:var(--grey);font-size:.9rem">* 당일 빵·음료는 매장 방문 또는 네이버 예약을 이용해 주세요.</p>
+      <div class="chips"><span>🎂 답례품 주문</span><span>📚 공간 대관</span><span>🧁 베이킹 클래스</span></div>
+    </div>
+    <form class="form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="two">
+        <div class="field"><label for="name">이름</label><input id="name" name="name" type="text" placeholder="성함" required></div>
+        <div class="field"><label for="phone">연락처</label><input id="phone" name="phone" type="tel" placeholder="010-0000-0000" required></div>
+      </div>
+      <div class="field"><label for="type">문의 유형</label>
+        <select id="type" name="type"><option>답례품·단체 주문</option><option>공간 대관</option><option>베이킹 클래스</option><option>기타</option></select></div>
+      <div class="field"><label for="msg">내용</label><textarea id="msg" name="msg" rows="4" placeholder="원하시는 날짜, 인원, 수량 등을 적어주세요"></textarea></div>
+      <button type="submit" class="btn btn--green" style="width:100%">문의 보내기</button>
+    </form>
+  </div>
+</section>
+
+<!-- 푸터 -->
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <div class="footer__brand"><span class="dot"></span>하루치 베이커리</div>
+      <small>서울 마포구 망원동 0길 00 · 02-1234-5678<br>화–일 08:00–21:00 · 월요일 휴무<br>© 2026 HARUCHI. 이피웹 제작 샘플.</small>
+    </div>
+    <div>
+      <small style="color:var(--mustard);font-weight:700;letter-spacing:.04em">FOLLOW</small>
+      <p style="margin-top:8px"><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> · <a href="https://booking.naver.com" target="_blank" rel="noopener">네이버 예약</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- 모바일 하단바 -->
+<div class="mbar">
+  <a class="tel" href="tel:0212345678">전화</a>
+  <a class="nav" href="https://booking.naver.com" target="_blank" rel="noopener">네이버 예약</a>
+  <a class="insta" href="https://instagram.com" target="_blank" rel="noopener">인스타그램</a>
+</div>
+
+<style>
+/* 스크롤 리빌 — 데스크탑 한정(모바일은 항상 표시, JS 실패해도 안전) */
+.reveal{opacity:1;transform:none}
+@media (min-width:861px){
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+</style>
+
+<script>
+(function(){
+  // 이벤트 팝업
+  var popup=document.getElementById('popup');
+  function today(){return new Date().toISOString().slice(0,10);}
+  var skip=false;
+  try{ skip = localStorage.getItem('haruchi_popup')===today(); }catch(e){}
+  if(popup && !skip){ setTimeout(function(){ popup.classList.add('show'); }, 700); }
+  function closePopup(){ if(popup) popup.classList.remove('show'); }
+  var px=document.getElementById('popupX'), pc=document.getElementById('popupClose'), pg=document.getElementById('popupGo');
+  if(px) px.addEventListener('click',closePopup);
+  if(pg) pg.addEventListener('click',closePopup);
+  if(pc) pc.addEventListener('click',function(){ try{ localStorage.setItem('haruchi_popup',today()); }catch(e){} closePopup(); });
+  if(popup) popup.addEventListener('click',function(e){ if(e.target===popup) closePopup(); });
+
+  // 스티키 내비 솔리드
+  var nav=document.getElementById('topnav'), ticking=false;
+  function onScroll(){ if(ticking)return; ticking=true; requestAnimationFrame(function(){
+    nav.classList.toggle('solid', window.scrollY>20); ticking=false; }); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // 모바일 햄버거
+  var burger=document.getElementById('burger'), links=document.getElementById('navLinks');
+  if(burger){ burger.addEventListener('click',function(){ links.classList.toggle('open'); }); }
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ links.classList.remove('open'); }); });
+
+  // 스크롤 리빌 (데스크탑만)
+  if(window.matchMedia('(min-width:861px)').matches && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
