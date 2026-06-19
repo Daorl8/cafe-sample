@@ -290,7 +290,7 @@ a{color:inherit;text-decoration:none}
 <section class="section" id="about">
   <div class="wrap about">
     <div class="about__media reveal">
-      <img src="https://images.unsplash.com/photo-1663592668466-49406a49e482?auto=format&fit=crop&w=1000&q=80" alt="동네 빵집 하루치 베이커리 내부">
+      <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1000&q=80" alt="갓 구운 빵이 진열된 하루치 베이커리">
     </div>
     <div class="about__text reveal">
       <p class="eyebrow">ABOUT · 우리 이야기</p>
@@ -456,7 +456,7 @@ a{color:inherit;text-decoration:none}
 /* 스크롤 리빌 — 데스크탑 한정(모바일은 항상 표시, JS 실패해도 안전) */
 .reveal{opacity:1;transform:none}
 @media (min-width:861px){
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .45s ease,transform .45s ease}
   .reveal.in{opacity:1;transform:none}
 }
 </style>
@@ -519,6 +519,14 @@ a{color:inherit;text-decoration:none}
         .finally(reset);
     });
   });
+})();
+</script>
+<script>
+/* reveal 안전장치: 화면 내 요소 강제 노출(숨김/백그라운드 탭 대비, 스크롤 효과 유지) */
+(function(){
+  function rv(){var els=document.querySelectorAll('.reveal:not(.in)');for(var i=0;i<els.length;i++){var r=els[i].getBoundingClientRect();if(r.top<innerHeight*0.92&&r.bottom>0)els[i].classList.add('in');}}
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(rv,60);});
+  window.addEventListener('load',function(){setTimeout(rv,1200);});
 })();
 </script>
 </body>
