@@ -10,11 +10,11 @@
 <meta property="og:title" content="하루치 베이커리 · HARUCHI — 서울 망원 동네 빵집 & 로스터리">
 <meta property="og:description" content="매일 새벽 갓 구운 빵과 느린 한 잔. 서울 망원 동네 빵집 & 로스터리.">
 <meta property="og:url" content="https://cafe-sample.lgt3232.workers.dev/">
-<meta property="og:image" content="https://cafe-sample.lgt3232.workers.dev/photo-1689037676470-b72230d5236e.jpg">
+<meta property="og:image" content="https://images.unsplash.com/photo-1689037676470-b72230d5236e?auto=format&fit=crop&w=1200&h=630&q=80">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="하루치 베이커리 · HARUCHI — 망원 동네 빵집">
 <meta name="twitter:description" content="매일 새벽 갓 구운 빵과 느린 한 잔. 망원 빵집 & 로스터리.">
-<meta name="twitter:image" content="https://cafe-sample.lgt3232.workers.dev/photo-1689037676470-b72230d5236e.jpg">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1689037676470-b72230d5236e?auto=format&fit=crop&w=1200&h=630&q=80">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231E3A2B'/><text x='16' y='22' font-family='Arial' font-size='17' font-weight='bold' fill='%23ffffff' text-anchor='middle'>H</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,10 +53,11 @@ a{color:inherit;text-decoration:none}
 .topnav__brand{font-family:"Fraunces",serif;font-weight:700;font-size:1.3rem;letter-spacing:.01em;color:var(--green);display:flex;align-items:center;gap:9px}
 .topnav__brand .dot{width:11px;height:11px;border-radius:50%;background:var(--mustard);display:inline-block}
 .topnav__links{display:flex;gap:30px;align-items:center}
-.topnav__links a{font-size:.92rem;font-weight:600;color:var(--ink);display:flex;flex-direction:column;line-height:1.1}
+.topnav__links a{font-size:.92rem;font-weight:600;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:3px;line-height:1.1}
 .topnav__links a span{font-size:.64rem;color:var(--grey);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .topnav__links a:hover{color:var(--mustard-d)}
 .topnav__cta{padding:10px 20px}
+.topnav__links a.topnav__cta{color:var(--mustard)}
 .topnav__burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
 .topnav__burger i{width:24px;height:2px;background:var(--green);display:block;border-radius:2px}
 
@@ -70,7 +71,7 @@ a{color:inherit;text-decoration:none}
 .popup__body{padding:26px 26px 30px}
 .popup__body h3{font-family:"Fraunces",serif;font-size:1.55rem;font-weight:600;margin-bottom:10px;color:var(--green)}
 .popup__body p{font-size:.92rem;color:var(--grey);margin-bottom:20px}
-.popup__close{background:none;border:none;color:var(--grey);font-size:.82rem;cursor:pointer;margin-top:14px;text-decoration:underline}
+.popup__close{background:none;border:none;color:var(--grey);font-size:.82rem;cursor:pointer;margin-top:14px;margin-left:18px;vertical-align:middle;text-decoration:underline}
 .popup__x{position:absolute;top:18px;right:22px;background:none;border:none;color:var(--cream);font-size:1.8rem;cursor:pointer;line-height:1}
 
 /* 히어로 — 좌우 분할 */
@@ -138,7 +139,7 @@ a{color:inherit;text-decoration:none}
     <div class="hero__text reveal">
       <span class="hero__kicker">서울 망원 · 동네 빵집 &amp; 로스터리</span>
       <h1 class="hero__title">오늘 구운 빵과<br><em>느린</em> 한 잔</h1>
-      <p class="hero__lead">매일 새벽 5시, 작은 오븐에서 시작합니다. 서두르지 않고 발효한 빵과 직접 볶은 원두 한 잔을 망원동에서.</p>
+      <p class="hero__lead">매일 새벽 5시, 작은 오븐에서 시작합니다.</p>
       <div class="hero__cta">
         <a href="https://booking.naver.com" target="_blank" rel="noopener" class="btn btn--mustard">네이버 예약</a>
         <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn--ghost">인스타그램</a>
@@ -146,7 +147,7 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
     <div class="hero__media reveal">
-      <img src="photo-1689037676470-b72230d5236e.jpg" alt="하루치 베이커리 내부 전경">
+      <img src="https://images.unsplash.com/photo-1689037676470-b72230d5236e?auto=format&fit=crop&w=1100&q=80" alt="하루치 베이커리 내부 전경">
       <div class="hero__badge">
         <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
@@ -223,7 +224,7 @@ a{color:inherit;text-decoration:none}
     <div class="menu">
       <aside class="menu__side reveal">
         <h2 class="h2 serif">빵은 매일,<br>메뉴는 계절 따라</h2>
-        <p>그날 구운 빵만 내어드려요. 원두는 2주마다 산지를 바꿔 직접 로스팅합니다.</p>
+        <p>그날 구운 빵만 내어드려요.<br>원두는 2주마다 산지를 바꿔 직접 로스팅합니다.</p>
         <ul class="menu__cats">
           <li><a href="#sig"><span class="ko">시그니처</span><span class="en">Signature</span></a></li>
           <li><a href="#coffee"><span class="ko">커피 · 음료</span><span class="en">Coffee</span></a></li>
@@ -233,25 +234,25 @@ a{color:inherit;text-decoration:none}
       <div class="menu__main">
         <div class="sig" id="sig">
           <article class="sig__card reveal">
-            <img src="photo-1559001724-fbad036dbc9e.jpg" alt="하루치 라떼" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1559001724-fbad036dbc9e?auto=format&fit=crop&w=680&q=80" alt="하루치 라떼" loading="lazy">
             <div class="body"><span class="tag">BEST</span>
               <div class="row"><h4 class="serif">하루치 라떼</h4><span class="price">5,500</span></div>
               <p>고소한 직화 로스팅 원두에 흑당 한 스푼.</p></div>
           </article>
           <article class="sig__card reveal">
-            <img src="photo-1608198093002-ad4e005484ec.jpg" alt="무화과 캄파뉴" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=680&q=80" alt="무화과 캄파뉴" loading="lazy">
             <div class="body"><span class="tag">한정</span>
               <div class="row"><h4 class="serif">무화과 캄파뉴</h4><span class="price">7,000</span></div>
               <p>제철 무화과를 넣어 천천히 발효한 6월의 빵.</p></div>
           </article>
           <article class="sig__card reveal">
-            <img src="photo-1587241321921-91a834d6d191.jpg" alt="버터 크루아상" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?auto=format&fit=crop&w=680&q=80" alt="버터 크루아상" loading="lazy">
             <div class="body">
               <div class="row"><h4 class="serif">버터 크루아상</h4><span class="price">4,200</span></div>
               <p>27겹 결이 살아 있는 아침 단골 메뉴.</p></div>
           </article>
           <article class="sig__card reveal">
-            <img src="photo-1533776992670-a72f4c28235e.jpg" alt="핸드드립 커피" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1533776992670-a72f4c28235e?auto=format&fit=crop&w=680&q=80" alt="핸드드립 커피" loading="lazy">
             <div class="body">
               <div class="row"><h4 class="serif">오늘의 드립</h4><span class="price">6,000</span></div>
               <p>매일 바뀌는 싱글 오리진, 바리스타 추천.</p></div>
@@ -290,13 +291,13 @@ a{color:inherit;text-decoration:none}
 <section class="section" id="about">
   <div class="wrap about">
     <div class="about__media reveal">
-      <img src="photo-1517433670267-08bbd4be890f.jpg" alt="갓 구운 빵이 진열된 하루치 베이커리">
+      <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1000&q=80" alt="갓 구운 빵이 진열된 하루치 베이커리">
     </div>
     <div class="about__text reveal">
       <p class="eyebrow">ABOUT · 우리 이야기</p>
       <h2 class="h2 serif">작은 오븐에서<br>시작한 동네 빵집</h2>
-      <p>2019년 망원동 골목, 4평 남짓한 공간에서 빵을 굽기 시작했어요. 화려하진 않아도 매일 같은 시간에 같은 정성으로 반죽을 올립니다.</p>
-      <p>유행보다 오래 가는 맛을 좋아합니다. 그래서 빵도, 커피도 천천히 — 발효는 충분히, 로스팅은 소량으로.</p>
+      <p>2019년 망원동 골목, 4평 남짓한 공간에서 빵을 굽기 시작했어요.<br>화려하진 않아도 매일 같은 시간에 같은 정성으로 반죽을 올립니다.</p>
+      <p>빵도, 커피도 천천히. 발효는 충분히. 로스팅은 소량으로.</p>
       <p class="about__sign serif">— 하루치를 굽는 사람들</p>
       <div class="about__facts">
         <div><b>5:00</b><small>매일 첫 반죽</small></div>
@@ -378,12 +379,12 @@ a{color:inherit;text-decoration:none}
       <a href="https://instagram.com" target="_blank" rel="noopener">팔로우하고 갓 구운 소식 받기 →</a>
     </div>
     <div class="feed__grid reveal">
-      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="photo-1568254183919-78a4f43a2877.jpg" alt="인스타 피드 1" loading="lazy"></a>
-      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="photo-1534432182912-63863115e106.jpg" alt="인스타 피드 2" loading="lazy"></a>
-      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="photo-1597528662465-55ece5734101.jpg" alt="인스타 피드 3" loading="lazy"></a>
-      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="photo-1503481766315-7a586b20f66d.jpg" alt="인스타 피드 4" loading="lazy"></a>
-      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="photo-1561882468-9110e03e0f78.jpg" alt="인스타 피드 5" loading="lazy"></a>
-      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="photo-1556471013-0001958d2f12.jpg" alt="인스타 피드 6" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 1" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1534432182912-63863115e106?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 2" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1597528662465-55ece5734101?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 3" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1503481766315-7a586b20f66d?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 4" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 5" loading="lazy"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1556471013-0001958d2f12?auto=format&fit=crop&w=420&q=80" alt="인스타 피드 6" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -414,7 +415,7 @@ a{color:inherit;text-decoration:none}
     <div class="contact__intro reveal">
       <p class="eyebrow">CONTACT · 문의</p>
       <h2 class="h2 serif">대관 · 단체 주문<br>문의하기</h2>
-      <p>북토크·클래스·소규모 모임 대관, 답례품·단체 주문을 도와드려요. 아래로 남겨주시면 영업일 기준 1–2일 안에 연락드립니다.</p>
+      <p>북토크·클래스·소규모 모임 대관, 답례품·단체 주문을 도와드려요.<br>아래로 남겨주시면 영업일 기준 1–2일 안에 연락드립니다.</p>
       <p style="margin-top:10px;color:var(--grey);font-size:.9rem">* 당일 빵·음료는 매장 방문 또는 네이버 예약을 이용해 주세요.</p>
       <div class="chips"><span>🎂 답례품 주문</span><span>📚 공간 대관</span><span>🧁 베이킹 클래스</span></div>
     </div>
